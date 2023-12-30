@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game1</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      body {
+        height: 100%;
+        width: 100vw;
+      }
+      #game {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid red;
+      }
+      button {
+        padding: 5px;
+        margin: 10px;
+      }
+
+      @media (max-width: 300px) {
+        body {
+          background-color: red;
+          align-items: center;
+          height: 100%;
+          width: 100vw;
+          justify-content: center;
+          margin: 0;
+          padding: 0;
+        }
+        h1 {
+          font-size: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="game">
+      <h2>Game</h2>
+      <h1>Stone,Paper,Siser</h1>
+      <button onclick="Game(this.value)" id="btn1" type="submit" value="1">
+        Stone</button
+      ><br />
+      <button onclick="Game(this.value)" id="btn2" type="submit" value="2">
+        Paper</button
+      ><br />
+      <button onclick="Game(this.value)" id="btn3" type="submit" value="3">
+        Siser</button
+      ><br />
+      <p id="output"></p>
+    </div>
+
+    <script>
+      var result = document.getElementById("output");
+      output.appendChild(result);
+      function Game(num) {
+        var stone = 1;
+        var paper = 2;
+        var siser = 3;
+        var x = Math.floor(Math.random() * 3) + 1;
+        // console.log(`System selected ${x}`);
+        var y = num;
+        if (x == y) {
+          // console.log(`${y} Draw`);
+          result.innerHTML = "Game Draw";
+        } else if (x == 1 && y == 2) {
+          // console.log(`${y} You win`);
+          result.innerHTML = "You Win";
+        } else if (x == 2 && y == 3) {
+          // console.log(`${y} You win`);
+          result.innerHTML = "You win";
+        } else if (x == 3 && y == 1) {
+          // console.log(`${y} You win`);
+          result.innerHTML = "You win";
+        } else {
+          // console.log(`${y} You lose`);
+          result.innerHTML = "You Loss";
+        }
+      }
+    </script>
+  </body>
+</html>
